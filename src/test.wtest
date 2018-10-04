@@ -7,7 +7,38 @@ test "Test Universidades" {
     	    unsam.nombre("Universidad de San Martin")
     	    unsam.provincia(bsas)
     	    unsam.honorariosPorHora(3500)
+    	    
+    	    var santafe = new Provincia()
+    		santafe.nombre("Santa Fe")
+    	    var urosario = new Universidad()
+    	    urosario.nombre("Universidad de Rosario")
+    	    urosario.provincia(santafe)
+    	    urosario.honorariosPorHora(2800)
         
+        	var corrientes = new Provincia()
+    		corrientes.nombre("Corrientes")
+    	    var ucorr = new Universidad()
+    	    ucorr.nombre("Universidad de Corrientes")
+    	    ucorr.provincia(corrientes)
+    	    ucorr.honorariosPorHora(4200)
+    	    
+    	    var unahur = new Universidad()
+    	    unahur.nombre("Universidad de Hurlingham")
+    	    unahur.provincia(bsas)
+    	    unahur.honorariosPorHora(8800)
+    	    
+        	var juana = new ProfesionalAsociado()
+        	juana.universidad(urosario)
+        	
+        	var melina = new ProfesionalAsociadoLitoral()
+        	melina.universidad(ucorr)
+        	
+        	var rocio = new ProfesionalLibre()
+        	rocio.universidad(unahur)
+        	rocio.provincia(bsas)
+        	
         assert.equals(3500, unsam.honorariosPorHora())
-}
-
+        assert.equals(2800, urosario.honorariosPorHora())
+        assert.equals("Universidad de Rosario", juana.universidad())
+        assert.equals("Universidad de Corrientes", melina.universidad())
+        }

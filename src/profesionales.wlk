@@ -1,24 +1,22 @@
-
-// esta clase está completa, no necesita nada más
-class ProfesionalAsociado {
-	var universidad
-	
-	method universidad() { return universidad }
-	method universidad(univ) { universidad = univ }
-	
-	method provinciasDondePuedeTrabajar() { return #{"Entre Ríos", "Corrientes", "Santa Fe"} }
-	
-	method honorariosPorHora() { return 3000 }
-}
-
-
-// a esta clase le faltan métodos
-class ProfesionalVinculado
+class ProfesionalAsociado
 {
 	var universidad = new Universidad()
 	var honorariosPorHora
 	var provincia = new Provincia()
+	method agregarEmpleado(empleado) 
+	{
+		profesional.add (empleado)
+	}
 	
+	method quitarEmpleado(empleado) 
+	{
+		profesional.remove (empleado)
+	}
+	
+	method empleadoConHonorariosMinimos() 
+	{ 
+		return profesional.min({empleado=>empleado.honorariosPorHora()}).honorariosPorHora()
+	}
 	method universidad()
 	{
 		return universidad.nombre()
@@ -51,6 +49,42 @@ class ProfesionalVinculado
 	}	
 }
 
+class ProfesionalAsociadoLitoral
+{
+	var universidad = new Universidad()
+	var honorariosPorHora
+	var provincia
+	
+	method universidad()
+	{
+		return universidad.nombre()
+	}
+	
+	method universidad(univ)
+	{
+		universidad = univ
+	}
+	
+	method provincia()
+	{
+		return provincia
+	}
+	
+	method provincia(prov)
+	{
+		provincia = prov
+	}
+	
+	method honorariosPorHora()
+	{
+		return 3000
+	}
+	
+	method honorariosPorHora(honorariosIngresados)
+	{
+		honorariosPorHora = honorariosIngresados
+	}	
+}
 
 class ProfesionalLibre
 {
@@ -162,6 +196,10 @@ class EmpresaServicios
 		return honorariosRecomendados
 	}
 	
+	method honorariosRecomendados(honorarios)
+	{
+		honorariosRecomendados = honorarios
+	}
 	method agregarEmpleado(empleado) 
 	{
 		profesional.add (empleado)
@@ -176,7 +214,4 @@ class EmpresaServicios
 	{ 
 		return profesional.min({empleado=>empleado.honorariosPorHora()}).honorariosPorHora()
 	}
-	method honorariosRecomendados(honorarios)
-	{
-		honorariosRecomendados = honorarios
-	}
+}
