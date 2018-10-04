@@ -1,0 +1,13 @@
+import profesionales.*
+
+test "Test Universidades" {
+    		var bsas = new Provincia()
+    		bsas.nombre("Buenos Aires")
+    	    var unsam = new Universidad()
+    	    unsam.nombre("Universidad de San Martin")
+    	    unsam.provincia(bsas)
+    	    unsam.honorariosPorHora(3500)
+        
+        assert.equals(3500, unsam.honorariosPorHora())
+}
+
